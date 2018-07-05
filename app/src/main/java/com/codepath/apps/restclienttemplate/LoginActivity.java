@@ -26,9 +26,9 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 		AsyncTask<SampleModel, Void, Void> task = new AsyncTask<SampleModel, Void, Void>() {
 			@Override
 			protected Void doInBackground(SampleModel... sampleModels) {
-				sampleModelDao.insertModel(sampleModels);
+				sampleModelDao.insertModel(sampleModel);
 				return null;
-			}
+			};
 		};
 		task.execute(sampleModel);
 	}
@@ -46,8 +46,8 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	@Override
 	public void onLoginSuccess() {
 		//Toast.makeText(this,"Success", Toast.LENGTH_LONG).show();
-		Intent i = new Intent(this, TimelineActivity.class);
-		startActivity(i);
+		 Intent i = new Intent(this, TimelineActivity.class);
+		 startActivity(i);
 	}
 
 	// OAuth authentication flow failed, handle the error
