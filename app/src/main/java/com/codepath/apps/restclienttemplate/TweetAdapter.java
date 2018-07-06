@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -51,7 +51,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         holder.tvUsename.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.tvTime.setText(tweet.getRelativeTimeAgo(tweet.createdAt));
-        Glide.with(context). load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+        //Glide.with(context). load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+
+        Glide.with(context)
+                .load(tweet.user.profileImageUrl)
+                .apply(
+                        RequestOptions.bitmapTransform(new RoundedCorners(200))
+                )
+
+
+                .into(holder.ivProfileImage);
+
 
 
 
@@ -74,7 +84,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             super(itemView);
 
             //preform the findViewById
-            ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
+            ivProfileImage = (ImageView) itemView.findViewById(R.id.ivMyProfileImage);
             tvUsename = (TextView) itemView.findViewById(R.id.tvUsername);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
