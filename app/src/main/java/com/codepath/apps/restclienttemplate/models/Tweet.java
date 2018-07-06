@@ -4,11 +4,12 @@ import android.text.format.DateUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.util.Locale;
 import java.text.SimpleDateFormat;
-
+@Parcel
 public class Tweet {
     //list out attributes
 

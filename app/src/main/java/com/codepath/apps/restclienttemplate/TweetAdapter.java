@@ -18,9 +18,10 @@ import java.util.List;
 
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
-
     private List<Tweet> mTweets;
     Context context;
+
+
     //pass in the tweets array in the constructor
     public TweetAdapter(List<Tweet> tweets){
 
@@ -67,6 +68,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return mTweets.size();
@@ -79,6 +82,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         public TextView tvUsename;
         public TextView tvBody;
         public TextView tvTime;
+
 
         public ViewHolder (View itemView){
             super(itemView);
@@ -96,4 +100,15 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
 
     }
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        mTweets.addAll(list);
+        notifyDataSetChanged();
+    }
+
 }

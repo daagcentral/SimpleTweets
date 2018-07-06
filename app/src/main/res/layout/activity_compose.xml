@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComposeActivity">
+    tools:context=".ComposeActivity"
+    >
 
     <EditText
         android:id="@+id/etCompose"
-        android:layout_width="297dp"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
         android:ems="10"
         android:hint="What's happening?"
         android:inputType="textMultiLine"
@@ -24,8 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
+
+        android:layout_alignTop="@+id/etCompose"
+
+        android:background="@drawable/mybutton"
         android:text="Tweet"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 </RelativeLayout>

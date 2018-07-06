@@ -27,6 +27,7 @@ public class ComposeActivity extends AppCompatActivity {
     Tweet tweet;
     EditText etCompose;
     Button btTweet;
+    TweetAdapter tweetAdapter;
 
 
     @Override
@@ -45,20 +46,22 @@ public class ComposeActivity extends AppCompatActivity {
 
 
     }
-    public void composeTweet(View view){
 
-        client.sendTweet(etCompose.getText().toString(),new JsonHttpResponseHandler(){
+    public void composeTweet(View view) {
+
+        client.sendTweet(etCompose.getText().toString(), new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    tweet=Tweet.fromJSON(response);
+                    tweet = Tweet.fromJSON(response);
 
-                    Intent post = new Intent();
-                    post.putExtra("tweet", Parcels.wrap(tweet));
-                    setResult(RESULT_OK,post);
+                    Intent data = new Intent();
+                    data.putExtra("tweet", Parcels.wrap(tweet));
+                    setResult(RESULT_OK, data);
                     finish();
-                } catch (JSONException e){
+                    //tweetAdapter.notifyItemInserted(tweet.);
+                } catch (JSONException e) {
 
                     e.printStackTrace();
                 }
